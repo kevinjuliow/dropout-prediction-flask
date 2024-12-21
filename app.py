@@ -119,7 +119,23 @@ def check_db_connection():
     finally:
         cursor.close()
 
+@app.route('/history' , methods=['GET'])
+def history() : 
+    try : 
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT * FROM prediction_history
+        """)
+        rows = cursor.fetchall()
+        columns = [desc[0] for desc in cursor.description]
 
+        # Convert rows to a list of dictionaries, formatting datetime
+        result = [dict(zip(columns, row)) for row in rows]
+
+        return jsonify({'success': True, 'data': result}), 200
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 def insert_to_database(name, feature, features_scaled, prediction_decoded):
     try:
