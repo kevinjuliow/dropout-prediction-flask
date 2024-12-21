@@ -1,0 +1,4 @@
+Flask==2.2.3
+flask-mysql==1.5.1
+python-dotenv==1.0.0
+numpy==1.25.0
