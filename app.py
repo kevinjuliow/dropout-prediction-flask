@@ -41,16 +41,16 @@ def predict():
         name = request.args.get('name')
 
         expected_features = [
-            "Marital status", "Application mode", "Course",
-            "Previous qualification", "Tuition fees up to date",
-            "Scholarship holder", "Age at enrollment",
-            "Curricular units 1st sem (credited)",
-            "Curricular units 1st sem (enrolled)",
-            "Curricular units 1st sem (evaluations)",
-            "Curricular units 1st sem (approved)",
-            "Curricular units 1st sem (grade)",
-            "Inflation rate"
-        ]
+            "marital_status", "application_mode", "course",
+            "previous_qualification", "tuition_fees_up_to_date",
+            "scholarship_holder", "age_at_enrollment",
+            "curricular_units_1st_sem_credited",
+            "curricular_units_1st_sem_enrolled",
+            "curricular_units_1st_sem_evaluations",
+            "curricular_units_1st_sem_approved",
+            "curricular_units_1st_sem_grade",
+            "inflation_rate"]
+
 
       
         missing_features = [feature for feature in expected_features if feature not in data]
